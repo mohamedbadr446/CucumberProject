@@ -1,6 +1,7 @@
 package CucumberFramwork1.excel;
 
 import java.io.IOException;
+import java.util.Objects;
 
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -18,7 +19,7 @@ public class ExcelUtils {
 	public  String getData(int row,int col)
 	{
 		try {
-			workbook=new XSSFWorkbook("C:\\Users\\user\\eclipse-workspace\\CucumberFramwork1\\excel\\File1.xlsx");
+			workbook=new XSSFWorkbook("C:\\Users\\mohamine\\eclipse-workspace\\CucumberFramwork1\\excel\\File1.xlsx");
 			sheet=workbook.getSheet("Feuil1");
 			String chaine=sheet.getRow(row).getCell(col).getStringCellValue();
 			return chaine;
@@ -29,4 +30,16 @@ public class ExcelUtils {
 		}
 	}
 
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		ExcelUtils that = (ExcelUtils) o;
+		return Objects.equals(workbook, that.workbook) && Objects.equals(sheet, that.sheet);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(workbook, sheet);
+	}
 }

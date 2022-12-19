@@ -24,7 +24,7 @@ public class Login {
 	
 	@Before
 	public void setup() {
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\user\\eclipse-workspace\\CucumberFramwork1\\src\\test\\java\\CucumberFramwork1\\resources\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\mohamine\\Desktop\\BPI\\chromedriver.exe");
 		doc=new ExcelUtils();
 		this.driver = new ChromeDriver();
 		this.driver.manage().window().maximize();
@@ -41,7 +41,7 @@ public class Login {
 	}
 	
 	@Given("^User navigates to stackoverflow website$")
-	public void user_navigates_to_stackoverflow_website() throws Throwable {
+	public void user_navigates_to_stackoverflow_website()  {
 	    this.driver.get("https://stackoverflow.com/");
 	} 
 
