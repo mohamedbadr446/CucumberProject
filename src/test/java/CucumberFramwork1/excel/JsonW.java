@@ -10,8 +10,8 @@ import java.util.Map;
 public class JsonW {
     public static void main(String[] args) {
         // Comma delimited text created using text blocks
-        String countries = CsvToJson.getCsv();
-
+       // String countries = CsvToJson.getCsv();
+        String countries=null;
         CsvSchema csvSchema = CsvSchema.emptySchema().withHeader();
         CsvMapper csvMapper = new CsvMapper();
 
