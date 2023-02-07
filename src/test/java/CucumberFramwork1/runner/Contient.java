@@ -1,5 +1,7 @@
 package CucumberFramwork1.runner;
 
+import java.io.IOException;
+
 public class Contient {
 
     public String rr(String str)
@@ -9,7 +11,7 @@ public class Contient {
         }
         return str;
     }
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         String nom="SyntheseBarometreJeunesChercheursetEntrepreneuriatPhDTalentBpifrance2022Versionlongue";
         String nom2="SyntheseBarometreJeunesChercheursetEntrepreneuriatPhDTalentBpifrance2022Versionlongued652aeca51";
 
@@ -21,5 +23,11 @@ public class Contient {
         Contient c=new Contient();
 
         System.out.println(c.rr(str.trim()));
+
+        String command ="netstat";
+        Process process = Runtime.getRuntime().exec(command);
+      //  process.getInputStream();
+        System.out.println(process.getOutputStream().toString());
+        System.out.println("jjj");
     }
 }

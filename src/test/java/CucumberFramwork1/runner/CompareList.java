@@ -1,6 +1,8 @@
 package CucumberFramwork1.runner;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -17,6 +19,14 @@ public class CompareList {
 
         differences.forEach(e-> System.out.println(e.toString()));
         System.out.println(differences.size());
+        List listEmpty=Arrays.asList("AAA", "BBB","DDD", "CCC");
+        List list=new ArrayList();
+        System.out.println(list.isEmpty());
+        Collections.sort(listEmpty, Collections.reverseOrder());
+       // listEmpty.removeAll(Arrays.asList("", null));
+        listEmpty.stream().filter(empty->(!empty.equals(""))).collect(Collectors.toList());
+        System.out.println(listEmpty);
+
 
     }
 }
