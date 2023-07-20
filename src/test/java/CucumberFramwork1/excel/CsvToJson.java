@@ -407,11 +407,56 @@ public class CsvToJson {
         double sumPourcentage_SU = listPourcentage_SU.stream().mapToDouble(a -> (double) a).sum();
         return sumPourcentage_SU / sumNb_SU;
     }
+    public static List getElementJsonList(String url, String elment) throws Exception {
+        String str = getCsvToJsonString(url);
+        //System.out.println(str);
 
+        List result = new ArrayList();
+        JSONParser parser = new JSONParser();
+        Object obj = parser.parse(str);
+
+        JSONArray array = (JSONArray) obj;
+
+        JSONObject ob;
+        for (int i = 0; i < array.size(); i++) {
+            ob = (JSONObject) array.get(i);
+
+            // result.add(array.get(i));
+            result.add(ob.get(elment));
+            //map.put(ob.get("date_publication"), ob.get("id"));
+
+        }
+        return result;
+    }
+
+    public static List getElementJsonString(String json, String elment) throws Exception {
+        String str = json;
+        //System.out.println(str);
+
+        List result = new ArrayList();
+        JSONParser parser = new JSONParser();
+        Object obj = parser.parse(str);
+
+        JSONArray array = (JSONArray) obj;
+
+        JSONObject ob;
+        for (int i = 0; i < array.size(); i++) {
+            ob = (JSONObject) array.get(i);
+
+            // result.add(array.get(i));
+            result.add(ob.get(elment));
+            //map.put(ob.get("date_publication"), ob.get("id"));
+
+        }
+        return result;
+    }
     public static void main(String[] args) throws Exception {
 
-        //getCsvJson(getCsv());
-        System.out.println(getCsvToJsonString(defaultfileCsv));
+        //getCsvJson(getCsv("C:\\Users\\mohamine\\Desktop\\BPI\\dashboard (11).csv"));
+       // System.out.println(getElementJsonList("C:\\Users\\mohamine\\Desktop\\BPI\\dashboard (11).csv","list_des_su").get(0));
+        //System.out.println(getElementJsonList("C:\\Users\\mohamine\\Desktop\\BPI\\dashboard (11).csv","list_des_su").get(0).toString().replace(";",","));
+        System.out.println(getElementJsonString(getElementJsonList("C:\\Users\\mohamine\\Desktop\\BPI\\dashboard11 (2).csv","list_des_su").get(5).toString().replace(";",","),"siren").size());
+
         //List list=getElementsJson2(detailsregions);
 
         //getElementsJson2(detailssudeeptech).forEach(e -> System.out.println(e.toString()));
